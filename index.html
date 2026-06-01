@@ -73,16 +73,21 @@ function submitForm(event) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-    .then(() => {
+   .then(() => {
+    // Replace the entire page with a submitted message
     document.body.innerHTML = `
         <h1 style="font-family: Arial; text-align:center; margin-top: 100px;">
-            Thank you! Submitted Successfully.
+            Thank you! Your sign‑in has been submitted.
         </h1>
+        <p style="text-align:center; font-size:18px;">
+            This window will reset automatically.
+        </p>
     `;
 
+    // Redirect after 3 seconds
     setTimeout(() => {
-        window.close();
-    }, 2000);
+        window.location.href = "about:blank"; 
+    }, 3000);
 })
 
     .catch(() => alert("Error submitting form"));
