@@ -23,7 +23,7 @@
 <body>
     <h2>Visitor Sign-In Form</h2>
 
-<form action="https://defaultcec3b02aea8c40eda66fa89023ac32.86.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/dfb24356a33943c08471af12bec40228/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ubrOfpDvHhzIC2di0TAynLtLwf4uN2KLn90WEWdu0JA" method="POST">
+ <form onsubmit="submitForm(event)">
 
         <label>First Name:</label><br>
         <input type="text" name="FirstName" required><br><br>
@@ -53,5 +53,29 @@
         <button type="submit">Submit</button>
 
     </form>
+<script>
+function submitForm(event) {
+    event.preventDefault();
+
+    const data = {
+        FirstName: document.querySelector("[name='FirstName']").value,
+        LastName: document.querySelector("[name='LastName']").value,
+        Date: document.querySelector("[name='Date']").value,
+        Phone: document.querySelector("[name='Phone']").value,
+        Company: document.querySelector("[name='Company']").value,
+        Email: document.querySelector("[name='Email']").value,
+        IntertekContact: document.querySelector("[name='IntertekContact']").value,
+        WatchedVideo: document.querySelector("[name='WatchedVideo']:checked").value
+    };
+
+    fetch("https://defaultcec3b02aea8c40eda66fa89023ac32.86.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/e05edf43f04b47c9adacf4dd2dbd2b02/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Su4JVV7UkHCBQXqrbLsW2663hIhclRaB5kkTfKFwgrA", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(() => alert("Submitted successfully"))
+    .catch(() => alert("Error submitting form"));
+}
+</script>
 </body>
 </html>
