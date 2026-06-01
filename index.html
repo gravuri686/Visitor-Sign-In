@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intertek Visitor Sign-In</title>
+
+    <style>
+        body {
+            background-color: #FFD100; /* Intertek yellow */
+            background-image: url("intertek-logo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 350px;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            width: 350px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Visitor Sign-In Form</h2>
+
+<form action="https://defaultcec3b02aea8c40eda66fa89023ac32.86.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/ddd2fcf8aa934b9c91ff0ccacc5d7c3d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=gKTxn2yxRDMjP64E_HquBCOLrCLM2u-0RtAW1pX6KjY" method="POST">
+
+        <label>First Name:</label><br>
+        <input type="text" name="First Name" required><br><br>
+
+        <label>Last Name:</label><br>
+        <input type="text" name="Last Name" required><br><br>
+         
+        <label>Today's Date:</label><br>
+        <input type="date" name="Todays Date" required><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="text" name="Phone" required><br><br>
+
+        <label>Company Name:</label><br>
+        <input type="text" name="Company" required><br><br>
+
+        <label>Email Address:</label><br>
+        <input type="email" name="Email" required><br><br>
+
+        <label>Intertek Contact Name:</label><br>
+        <input type="text" name="Intertek Contact" required><br><br>
+
+        <label>Have you watched the safety video earlier?</label><br>
+        <input type="radio" name="Watched Safety Video Earlier" value="Yes" required> Yes<br>
+        <input type="radio" name="Watched Safety Video Earlier" value="No" required> No<br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
