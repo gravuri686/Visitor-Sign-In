@@ -73,8 +73,11 @@ function submitForm(event) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-   then(() => {
-        // Completely replace the page with a clean thank-you screen
+   .catch(() => {
+        // Ignore errors — still show thank you screen
+    })
+    .finally(() => {
+        // ALWAYS show thank-you screen
         document.body.innerHTML = `
             <div style="text-align:center; margin-top:120px; font-family:Arial;">
                 <h1>Thank you for signing in with Intertek.</h1>
@@ -82,9 +85,8 @@ function submitForm(event) {
                 <p style="font-size:20px; margin-top:10px;">Have a great day.</p>
             </div>
         `;
-        document.body.style.background = "#FFD100";  // optional solid background
-    })
-    .catch(() => alert("Error submitting form"));
+        document.body.style.background = "#FFD100";
+    });
 }
 </script>
 </body>
