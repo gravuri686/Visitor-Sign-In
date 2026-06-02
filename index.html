@@ -73,20 +73,18 @@ function submitForm(event) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-   .then(() => {
-    // Replace the entire page with your custom message
-    document.body.innerHTML = `
-        <h1 style="font-family: Arial; text-align:center; margin-top: 100px;">
-            Thank you signing in with Intertek.
-        </h1>
-        <p style="text-align:center; font-size:20px; margin-top: 10px;">
-            Safety First. Have a great day.
-        </p>
-    `;
-
-})
-.catch(() => alert("Error submitting form"));
-
+   then(() => {
+        // Completely replace the page with a clean thank-you screen
+        document.body.innerHTML = `
+            <div style="text-align:center; margin-top:120px; font-family:Arial;">
+                <h1>Thank you for signing in with Intertek.</h1>
+                <h2>Safety First.</h2>
+                <p style="font-size:20px; margin-top:10px;">Have a great day.</p>
+            </div>
+        `;
+        document.body.style.background = "#FFD100";  // optional solid background
+    })
+    .catch(() => alert("Error submitting form"));
 }
 </script>
 </body>
